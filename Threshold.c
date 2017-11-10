@@ -42,6 +42,8 @@ int main(int argc, char * argv[])
     
     if(threshold < 500)
     {
+      threshold = 765;
+      image = camGrabImg(camera);
     }
   }
   
