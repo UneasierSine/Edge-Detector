@@ -7,7 +7,6 @@ be changing. Lower brightness most likely indicates brightness. To prevent issue
 #include <wiringPi.h>
 
 //function declarations
-int pixelBrightness(int x, int y, Image * img);
 int thresholdBrightness(char * pixel, int threshold);
 
 int main(int argc, char * argv[])
@@ -51,3 +50,12 @@ int main(int argc, char * argv[])
   quit_imgproc();
   return 0;
 }
+
+int thresholdBrightness(char * pixel, int threshold)
+{
+  
+}
+
+
+
+
