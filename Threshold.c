@@ -20,8 +20,22 @@ int main(int argc, char * argv[])
   Camera * camera = camOpen(640, 480);
   Viewer * viewer = viewOpen(640, 480, "viewer");
   
+  //threshold variable
+  int threshold = 765;
+  
   while(1 == 1)
   {
+    threshold-=3;
+    
+    Image * image = camGrabImg(camera);
+    unsigned int x, y;
+    for(x = 0; x < image->imgWidth; x++)
+    {
+      for(y = 0; y < image->imgHeight; y++)
+      {
+        thesholdbrightness(imgGetPixel(img, x, y), threshold);
+      }
+    }
   }
   
   //end
