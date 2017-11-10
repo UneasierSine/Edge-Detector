@@ -33,8 +33,15 @@ int main(int argc, char * argv[])
     {
       for(y = 0; y < image->imgHeight; y++)
       {
-        thesholdbrightness(imgGetPixel(img, x, y), threshold);
+        if(thesholdbrightness(imgGetPixel(img, x, y), threshold) == 1)
+        {
+          imgSetPixel(img, x, y, 255, 0, 0);
+        }
       }
+    }
+    
+    if(threshold < 500)
+    {
     }
   }
   
