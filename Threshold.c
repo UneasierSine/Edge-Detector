@@ -2,3 +2,29 @@
 be changing. Lower brightness most likely indicates brightness. To prevent issues, subtract pixel brightness without lighting.*/
 #include <stdlib>
 #include <stdio>
+#include <math.h>
+#include "imgproc.h"
+#include <wiringPi.h>
+
+//function declarations
+int pixelBrightness(int x, int y, Image * img);
+int thresholdBrightness(char * pixel, int threshold);
+
+int main(int argc, char * argv[])
+{
+  //initialize librares
+  init_imgproc();
+  wiringPiSetup();
+  
+  //set up camera and viewer
+  Camera * camera = camOpen(640, 480);
+  Viewer * viewer = viewOpen(640, 480, "viewer");
+  
+  while(1 == 1)
+  {
+  }
+  
+  //end
+  quit_imgproc();
+  return 0;
+}
