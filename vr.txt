@@ -1,0 +1,5 @@
+The webcamera is a Logitech C615 1080p HD Webcamera. It has a diagonal field of view (DFOV) of 74 degrees.
+More information can be found at 
+  http://support.logitech.com/en_us/product/hd-webcam-c615/specs
+  
+The RPi display will tentatively be 5" diagonally and will have a 480 x 800 pixel resolution screen leaving two halves of 480 x 400 pixels.
