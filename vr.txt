@@ -3,3 +3,8 @@ More information can be found at
   http://support.logitech.com/en_us/product/hd-webcam-c615/specs
   
 The RPi display will tentatively be 5" diagonally and will have a 480 x 800 pixel resolution screen leaving two halves of 480 x 400 pixels.
+
+
+The second option is to use augmented realtiy. I will continue to use the Logitech C615 web camera and will tilt it ten degrees downward. Secondly, I will be using a 5" Raspberry Pi display. The screen will be angled so that it matches with the human field of view with 30 degrees below and 10 degrees above.
+According to documentation, the 5" display is 10.80 by 6.48 centimeters on the sides. In the end, I will be using the screen 480 by 800 pixels out of the default 16:9 ratio of 854 to 480 which is a angle difference similar to what is the main human field of view.
+
