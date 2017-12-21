@@ -30,15 +30,23 @@ int main(int argc, char **argv)
 			{
 				int brightness = 0;
 				int m = SumPixels(imgGetPixel(image, x, y)[0], imgGetPixel(image, x, y)[1], imgGetPixel(image, x, y)[2]);
-				int t1 = SumPixels(imgGetPixel(image, x-1, y-1)[0], imgGetPixel(image, x-1, y-1)[1], imgGetPixel(image, x-1, y-1)[2]);
-				int t2 = SumPixels(imgGetPixel(image, x, y-1)[0], imgGetPixel(image, x, y-1)[1], imgGetPixel(image, x, y-1)[2]);
-        int t3 = SumPixels(imgGetPixel(image, x, y-1)[0], imgGetPixel(image, x, y-1)[1], imgGetPixel(image, x, y-1)[2]);
-				int m1 = SumPixels(imgGetPixel(image, x-1, y)[0], imgGetPixel(image, x-1, y)[1], imgGetPixel(image, x-1, y)[2]);
-				int m3 = SumPixels(imgGetPixel(image, x+1, y)[0], imgGetPixel(image, x+1, y)[0], imgGetPixel(image, x+1, y)[2]);
-        int b1 = SumPixels(imgGetPixel(image, x-1, y+1)[0], imgGetPixel(image, x-1, y+1)[1], imgGetPixel(image, x-1, y+1)[2]);
-				int b2 = SumPixels(imgGetPixel(image, x, y+1)[0], imgGetPixel(image, x, y+1)[1], imgGetPixel(image, x, y+1)[2]);
-				int b3 = SumPixels(imgGetPixel(image, x+1, y+1)[0], imgGetPixel(image, x+1, y+1)[1], imgGetPixel(image, x+1, y+1)[2]);
-        }
+				int ld1 = SumPixels(imgGetPixel(image, x-2, y-2)[0], imgGetPixel(image, x-2, y-2)[1], imgGetPixel(image, x-2, y-2)[2]);
+				int ld2 = SumPixels(imgGetPixel(image, x-1, y-1)[0], imgGetPixel(image, x-1, y-1)[1], imgGetPixel(image, x-1, y-1)[2]);
+				int ld3 = SumPixels(imgGetPixel(image, x+1, y+1)[0], imgGetPixel(image, x+1, y+1)[1], imgGetPixel(image, x+1, y+1)[2]);
+        			int ld4 = SumPixels(imgGetPixel(image, x+2, y+2)[0], imgGetPixel(image, x+2, y+2)[1], imgGetPixel(image, x+2, y+2)[2]);
+        			int d1 = SumPixels(imgGetPixel(image, x, y-2)[0], imgGetPixel(image, x, y-2)[1], imgGetPixel(image, x, y-2)[2]);
+        			int d2 = SumPixels(imgGetPixel(image, x, y-1)[0], imgGetPixel(image, x, y-1)[1], imgGetPixel(image, x, y-1)[2]);
+        			int d3 = SumPixels(imgGetPixel(image, x, y+1)[0], imgGetPixel(image, x, y+1)[1], imgGetPixel(image, x, y+1)[2]);
+				int d4 = SumPixels(imgGetPixel(image, x, y+2)[0], imgGetPixel(image, x, y+2)[1], imgGetPixel(image, x, y+2)[2]);
+				int rd1 = SumPixels(imgGetPixel(image, x+2, y-2)[0], imgGetPixel(image, x+2, y-2)[1], imgGetPixel(image, x+2, y-2)[2]);
+				int rd2 = SumPixels(imgGetPixel(image, x+1, y-1)[0], imgGetPixel(image, x+1, y-1)[1], imgGetPixel(image, x+1, y-1)[2]);	
+				int rd3 = SumPixels(imgGetPixel(image, x-1, y+1)[0], imgGetPixel(image, x-1, y+1)[1], imgGetPixel(image, x-1, y+1)[2]);
+				int rd4 = SumPixels(imgGetPixel(image, x-2, y+2)[0], imgGetPixel(image, x-2, y+2)[1], imgGetPixel(image, x-2, y+2)[2]);
+				int r1 = SumPixels(imgGetPixel(image, x-2, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
+        			int r2 = SumPixels(imgGetPixel(image, x-1, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
+        			int r3 = SumPixels(imgGetPixel(image, x+1, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
+				int r4 = SumPixels(imgGetPixel(image, x+2, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
+			}
 		}
 		viewDisplayImage(viewer, image);
 		imgDestroy(image);
