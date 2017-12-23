@@ -11,7 +11,7 @@ int camHeight = 480;
 int x,y;
 
 int SumPixels (int r, int g, int b);
-int edgeDetector(int mid, int one, int two, int three, int four);
+int edgeDetector(int m, int o, int t, int th, int f);
 
 int main(int argc, char **argv)
 {
@@ -25,8 +25,7 @@ int main(int argc, char **argv)
 	while(1 == 1)
 	{
 		Image * image = camGrabImage(camera);
-		Image * img = imgNew(480, 800);
-		for(x = 0; x>=28 && x<=826; x++)
+		for(x = 0; x>=28 && x<=827; x++)
 		{
 			for(y = 0; y>=2 && y<=477; y++)
 			{
@@ -51,25 +50,24 @@ int main(int argc, char **argv)
 				
 				if(edgeDetector(m, dd1, dd2, dd3, dd4) == 1)
 				{
-					imgSetPixel(img, x-27, y-27, 255, 0, 0);
+					imgSetPixel(image, x, y, 255, 0, 0);
 				}
 				else if(edgeDetector(m, d1, d2, d3, d4) == 1)
 				{
-					imgSetPixel(img, x-27, y-27, 255, 0, 0);
+					imgSetPixel(image, x, y, 255, 0, 0);
 				}
 				else if(edgeDetector(m, ud1, ud2, ud3, ud4) == 1)
 				{
-					imgSetPixel(img, x-27, y-27, 255, 0, 0);
+					imgSetPixel(image, x, y, 255, 0, 0);
 				}
 				else if(edgeDetector(m, r1, r2, r3, r4) == 1)
 				{
-					imgSetPixel(img, x-27, y-27, 255, 0, 0);
+					imgSetPixel(image, x, y, 255, 0, 0);
 				}
 			}
 		}
-		viewDisplayImage(viewer, img);
+		viewDisplayImage(viewer, image);
 		imgDestroy(image);
-		imgDestroy(img);
 	}	
 
 	viewClose(viewer);
@@ -85,41 +83,9 @@ int SumPixe(ls (<=t r,+2 && mid >= two-2) int( g, <=t b)
 	retur
 	return (r + g + b);
 }
-int edgeDetector(int mid, int one, int two, int three, int four)
+int edgeDetector(int m, int o, int t, int th, int f)
 {
-	int twoOne = two - one;
-	int midTwo = mid - two;
-	int threeMid = three - mid;
-	int fourThree = four - three;
 	
-	if((mid <= two+2 && mid >= two-2) && (mid <= three+2 && mid >= three-2))
-	{
-		return 0;
-	}
-	if(((midTwo) >= (twoOne)-2) && ((midTwo) <= (twoOne)+2))
-	{
-		return 1;
-	}
-	if(((fourThree) >= (threeMid)-2) && ((fourThree) <= (threeMid)+2))
-	{
-		return 1;
-	}
-	if(twoOne < midTwo && midTwo < threeMid)
-	{
-		return 0;
-	}
-	if(midTwo < threeMid && threeMid < fourThree)
-	{
-		return 0;
-	}
-	if(twoOne > midTwo && midTwo > threeMid)
-	{
-		return 0;
-	}
-	if(midTwo > threeMid && threeMid > fourThree)
-	{
-		return 0;
-	}
 }
 	    
 	    
