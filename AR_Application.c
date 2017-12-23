@@ -85,7 +85,37 @@ int SumPixe(ls (<=t r,+2 && mid >= two-2) int( g, <=t b)
 }
 int edgeDetector(int m, int o, int t, int th, int f)
 {
-	
+	if(t>(m-5) && t<(m+5) && m>(th-5) && m<(th+5))
+	{
+		return 0;
+	}
+	if((m-t)>(th-m-3) && (m-t)<)th-m+3))
+	{
+		return 0;
+	}
+	if((m-t)>(th-m+3))
+	{
+		if((t-o)>(m-t+3))
+		{
+			return 0;
+		}
+		if((th-m)>(f-th+3))
+		{
+			return 0;
+		}
+	}
+	if((m-t)<(th-m-3))
+	{
+		if((t-o)<(m-t-3))
+		{
+			return 0;
+		}
+		if((th-m)<(f-th-3))
+		{
+			return 0;
+		}
+	}
+	return 1;
 }
 	    
 	    
