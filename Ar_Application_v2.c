@@ -26,30 +26,10 @@ int main(int argc, char **argv)
 	while(1 == 1)
 	{
 		Image * image = camGrabImage(camera);
-		for(x = 0; x>=28 && x<=827; x++)
+		for(x = 28; x<=827; x++)
 		{
-			for(y = 0; y>=2 && y<=477; y++)
+			for(y = 2; y<=477; y++)
 			{
-				int brightness = 0;
-				/*int m = SumPixels(imgGetPixel(image, x, y)[0], imgGetPixel(image, x, y)[1], imgGetPixel(image, x, y)[2]);
-				int dd1 = SumPixels(imgGetPixel(image, x-2, y-2)[0], imgGetPixel(image, x-2, y-2)[1], imgGetPixel(image, x-2, y-2)[2]);
-				int dd2 = SumPixels(imgGetPixel(image, x-1, y-1)[0], imgGetPixel(image, x-1, y-1)[1], imgGetPixel(image, x-1, y-1)[2]);
-				int dd3 = SumPixels(imgGetPixel(image, x+1, y+1)[0], imgGetPixel(image, x+1, y+1)[1], imgGetPixel(image, x+1, y+1)[2]);
-        		int dd4 = SumPixels(imgGetPixel(image, x+2, y+2)[0], imgGetPixel(image, x+2, y+2)[1], imgGetPixel(image, x+2, y+2)[2]);
-        		int d1 = SumPixels(imgGetPixel(image, x, y-2)[0], imgGetPixel(image, x, y-2)[1], imgGetPixel(image, x, y-2)[2]);
-        		int d2 = SumPixels(imgGetPixel(image, x, y-1)[0], imgGetPixel(image, x, y-1)[1], imgGetPixel(image, x, y-1)[2]);
-        		int d3 = SumPixels(imgGetPixel(image, x, y+1)[0], imgGetPixel(image, x, y+1)[1], imgGetPixel(image, x, y+1)[2]);
-				int d4 = SumPixels(imgGetPixel(image, x, y+2)[0], imgGetPixel(image, x, y+2)[1], imgGetPixel(image, x, y+2)[2]);
-				int ud4 = SumPixels(imgGetPixel(image, x+2, y-2)[0], imgGetPixel(image, x+2, y-2)[1], imgGetPixel(image, x+2, y-2)[2]);
-				int ud3 = SumPixels(imgGetPixel(image, x+1, y-1)[0], imgGetPixel(image, x+1, y-1)[1], imgGetPixel(image, x+1, y-1)[2]);	
-				int ud2 = SumPixels(imgGetPixel(image, x-1, y+1)[0], imgGetPixel(image, x-1, y+1)[1], imgGetPixel(image, x-1, y+1)[2]);
-				int ud1 = SumPixels(imgGetPixel(image, x-2, y+2)[0], imgGetPixel(image, x-2, y+2)[1], imgGetPixel(image, x-2, y+2)[2]);
-				int r1 = SumPixels(imgGetPixel(image, x-2, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
-        		int r2 = SumPixels(imgGetPixel(image, x-1, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
-        		int r3 = SumPixels(imgGetPixel(image, x+1, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
-				int r4 = SumPixels(imgGetPixel(image, x+2, y)[0], imgGetPixel(image, x-2, y)[1], imgGetPixel(image, x-2, y)[2]);
-				*/
-				
 				int m = getBrightness(x, y, image);
 				int dd1 = getBrightness(x-2, y-2, image);
 				int dd2 = getBrightness(x-1, y-1, image);
