@@ -112,32 +112,38 @@ int getBrightness(int x, int y, Image * img)
 
 int edgeDetector(int m, int o, int t, int th, int f)
 {
-	if(t>(m-5) && t<(m+5) && m>(th-5) && m<(th+5))
+	if(t>(m-5) && t<(m+5))
 	{
-		return 0;
-	}
-	if((m-t)>(th-m-3) && (m-t)<(th-m+3))
-	{
-		return 0;
-	}
-	if((m-t)>(th-m+3))
-	{
-		if((t-o)>(m-t+3))
-		{
-			return 0;
-		}
-		if((th-m)>(f-th+3))
+		if(m>(th-5) && m<(th+5)
 		{
 			return 0;
 		}
 	}
-	if((m-t)<(th-m-3))
+	if((m-t)>(th-m-5))
 	{
-		if((t-o)<(m-t-3))
+		if((m-t)<(th-m+5))
 		{
 			return 0;
 		}
-		if((th-m)<(f-th-3))
+	}
+	if((m-t)>(th-m+5))
+	{
+		if((t-o)>(m-t+5))
+		{
+			return 0;
+		}
+		if((th-m)>(f-th+5))
+		{
+			return 0;
+		}
+	}
+	if((m-t)<(th-m-5))
+	{
+		if((t-o)<(m-t-5))
+		{
+			return 0;
+		}
+		if((th-m)<(f-th-5))
 		{
 			return 0;
 		}
