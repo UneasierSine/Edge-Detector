@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <wiringPi.h>
-#include <SDL.h>
 #include "imgproc.h"
 
 //camera picture dimensions
@@ -29,58 +28,52 @@ int main(int argc, char **argv)
 	Camera * camera = camOpen(camWidth, camHeight);
 	Viewer * viewer = viewOpen(camWidth, camHeight, "Viewer");
 	
-  int trialNumber = 0;
-  
 	//start analysis here
-	while(trialNumber < 40)
-  {
-    //save image pixels that line up to array and store brightness in the array
-	  Image * image = camGrabImage(camera);
+	//save image pixels that line up to array and store brightness in the array
+	while(1 == 1)
+	{
+		int numberOfEdges = 0;
+		//take image and make a separate image for edges
+		Image * image = camGrabImage(camera);
+		Image * img = imgNew(640, 480);
 		
-    int numberOfEdges = 0;
-    
-	  //iterate through pixels within a 480x800 range (for the display in the AR application)
-	  for(x = 2; x<=637; x++)
-	  {
-		  for(y = 2; y<=477; y++)
-		  {
-			  //brightness of certain pixels in 5x5 kernel
-			  int m = getBrightness(x, y, image);
-			  int d1 = getBrightness(x, y-2, image);
-			  int d2 = getBrightness(x, y-1, image);
-			  int d3 = getBrightness(x, y+1, image);
-			  int d4 = getBrightness(x, y+2, image);
-			  int r1 = getBrightness(x-2, y, image);
-			  int r2 = getBrightness(x-1, y, image);
-			  int r3 = getBrightness(x+1, y, image);
-			  int r4 = getBrightness(x+2, y, image);
-		
-			  //edge detection and set edges to red
-			  if(edgeDetector(m, d1, d2, d3, d4) == 1)
-			  {
-				  imgSetPixel(image, x, y, 255, 0, 0);
-          numberOfEdges++;
-			  }
-			  if(edgeDetector(m, r1, r2, r3, r4) == 1)
-			  {
-			  	imgSetPixel(image, x, y, 255, 0, 0);
-          numberOfEdges++;
-			  }
-		  }
-	  }
-	  //display image and destroy images for space
-	  viewDisplayImage(viewer, image);
-	  
-    trialNumber++;
-    
-    SDL_SaveBMP(image, "/home/pi/testing/output/%d.bmp", trialNumber);
-    imgDestroy(image);
-    
-    //write trial and number of edges to txt file
-    outputTxt = fopen("/home/pi/testing/output/outputFile.txt", "w");
-    fprintf(outputTxt, "%d : %d\n", trialNumber, numberOfEdges);
-    fclose(outputTxt);
-  }
+		//iterate through pixels within a 480x800 range (for the display in the AR application)
+		for(x = 2; x<=637; x++)
+		{
+			for(y = 2; y<=477; y++)
+			{
+				//brightness of certain pixels in 5x5 kernel
+				int m = getBrightness(x, y, image);
+				int d1 = getBrightness(x, y-2, image);
+				int d2 = getBrightness(x, y-1, image);
+				int d3 = getBrightness(x, y+1, image);
+				int d4 = getBrightness(x, y+2, image);
+				int r1 = getBrightness(x-2, y, image);
+				int r2 = getBrightness(x-1, y, image);
+				int r3 = getBrightness(x+1, y, image);
+				int r4 = getBrightness(x+2, y, image);
+			
+				//edge detection and set edges to red
+				if(edgeDetector(m, d1, d2, d3, d4) == 1)
+				{
+					imgSetPixel(img, x, y, 255, 0, 0);
+					numberOfEdges++;
+				}
+				if(edgeDetector(m, r1, r2, r3, r4) == 1)
+				{
+					imgSetPixel(img, x, y, 255, 0, 0);
+					numberOfEdges++;
+				}
+			}
+		}
+		//display image and destroy images for space
+		viewDisplayImage(viewer, img);
+		printf("%d\n", numberOfEdges);
+		imgDestroy(image);
+		imgDestroy(img);
+	}	
+
+	//yeah that
 	viewClose(viewer);
 	camClose(camera);
 
