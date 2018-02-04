@@ -18,23 +18,23 @@ int SumPixels (int r, int g, int b);
 int getBrightness(int x, int y, Image * img);
 int edgeDetector(int m, int o, int t, int th, int f);
 
+//initialize libraries
+init_imgproc();	
+
 //initialize camera and viewer
 Camera * camera = camOpen(camWidth, camHeight);
 Viewer * viewer = viewOpen(camWidth, camHeight, "Viewer");
 
 int main(int argc, char **argv)
 {
-	//initialize libraries
-	init_imgproc();	
-	
 	//start analysis here
 	//save image pixels that line up to array and store brightness in the array
 	while(1 == 1)
 	{
     pthread_t threads[8];
-    for(t=0; t<8; t++)
+    for(int t=0; t<8; t++)
     {
-       pthread_create(&threads[t], NULL, PrintHello, (void *)t);
+       pthread_create(&threads[t], NULL, detect, (void *)t);
     }
 	}
 
