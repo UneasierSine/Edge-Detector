@@ -19,6 +19,9 @@ int SumPixels (int r, int g, int b);
 int getBrightness(int x, int y, Image * img);
 int edgeDetector(int m, int o, int t, int th, int f);
 
+int main(int argc, char **argv)
+{
+	
 //initialize libraries
 init_imgproc();	
 
@@ -26,8 +29,6 @@ init_imgproc();
 Camera * camera = camOpen(camWidth, camHeight);
 Viewer * viewer = viewOpen(camWidth, camHeight, "Viewer");
 
-int main(int argc, char **argv)
-{
 	//start analysis here
 	//save image pixels that line up to array and store brightness in the array
 	while(1 == 1)
