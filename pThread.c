@@ -7,6 +7,7 @@
 #include <math.h>
 #include <wiringPi.h>
 #include "imgproc.h"
+#include <pthread.h>
 
 //camera picture dimensions
 int camWidth = 640;
