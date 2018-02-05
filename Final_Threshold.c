@@ -1,7 +1,4 @@
-//December 28, 2017
-//9:49 P.M. is when I finished, and this is the most I wil do for today. Mentally exhausted? Yes. Happy? No. What? Exhilarated.
-
-//impor tlibraries
+//import libraries
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -95,6 +92,7 @@ int getBrightness(int x, int y, Image * img)
 //edge detection algorithm
 int edgeDetector(int m, int o, int t, int th, int f)
 {
+	//are adjacent pixels of the same value?
 	if(t>(m-20) && t<(m+20))
 	{
 		if(m>(th-20) && m<(th+20))
@@ -102,6 +100,7 @@ int edgeDetector(int m, int o, int t, int th, int f)
 			return 0;
 		}
 	}
+	//are there any interrupted linear patterns?
 	if((m-t)>(th-m-20))
 	{
 		if((m-t)<(th-m+20))
@@ -109,6 +108,7 @@ int edgeDetector(int m, int o, int t, int th, int f)
 			return 0;
 		}
 	}
+	//is there a general trend of increasing values?
 	if((m-t)>(th-m+50))
 	{
 		if((t-o)>(m-t+50))
@@ -120,6 +120,7 @@ int edgeDetector(int m, int o, int t, int th, int f)
 			return 0;
 		}
 	}
+	//is there a general trend of decreasing values?
 	if((m-t)<(th-m-50))
 	{
 		if((t-o)<(m-t-50))
